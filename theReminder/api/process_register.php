@@ -2,16 +2,16 @@
 
 
 
-function processRegister($connection, $username, $email, $password) {
+function processRegister($connection, $showname, $username, $email, $password) {
 
 	$sql = "";
 
-	if(validateRegister($connection, $username, $email, $password)) {
+	if(validateRegister($connection, $showname, $username, $email, $password)) {
 
 		$password = password_hash($password, PASSWORD_BCRYPT);
 
-		$sql = "INSERT INTO users(id, username, password, email) 
-	 	VALUES (0, '$username', '$password', '$email')";
+		$sql = "INSERT INTO users(id, showname, username, password, email) 
+	 	VALUES (0, '$showname', '$username', '$password', '$email')";
 
 	}
 	else {
@@ -28,13 +28,12 @@ function processRegister($connection, $username, $email, $password) {
 
 
 
-
-/**
-	Bugs: Ga bisa validasi apabila terdapat username atau email yang sama
-*/
-function validateRegister($connection, $username, $email, $password) {
+function validateRegister($connection, $showname, $username, $email, $password) {
 	
-	//if(!$connection->query("SELECT username FROM users WHERE username='$username'")) {
+	$queryRead = "SELECT * FROM users WHERE username = '$username' OR email = '$email'";
+	$result = mysqli_query($connection, $queryRead);
+
+	if(!mysqli_fetch_assoc($result)) {
 
 		if(strlen($username) >= 3 && strlen($username) <= 50) {
 
@@ -44,11 +43,11 @@ function validateRegister($connection, $username, $email, $password) {
 
 					if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
-						//if(!$connection->query("SELECT email FROM users WHERE email='$email'")) {
+						if(strlen($showname) >= 3 && strlen($showname) <= 255) {
 
 							return true;
 
-						//}
+						}
 
 					}
 
@@ -58,7 +57,7 @@ function validateRegister($connection, $username, $email, $password) {
 
 		}
 
-	//}
+	}
 
 	return false;
 

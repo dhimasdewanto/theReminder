@@ -23,11 +23,12 @@ else if($_SERVER['REQUEST_METHOD'] == "POST") {
 		$data = file_get_contents("php://input");
 		$data = json_decode($data);
 
+		$showname = $data->showname;
 		$username = $data->username;
 		$email = $data->email;
 		$password = $data->password;
 
-		processRegister($connection, $username, $email, $password);
+		processRegister($connection, $showname, $username, $email, $password);
 
 	}
 

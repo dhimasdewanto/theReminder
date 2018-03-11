@@ -25,6 +25,11 @@
 			        </div>
 			        <div class="card-body">
 			            <form action="register.php" class="form" role="form" autocomplete="off" novalidate="" method="post">
+			            	<div class="form-group">
+			                    <label>Your Name</label>
+			                    <input type="text" class="form-control form-control-lg rounded-0" name="showname" id="showname" required="">
+			                    <div class="invalid-feedback">Oops, you missed this one.</div>
+			                </div>
 			                <div class="form-group">
 			                    <label>Username</label>
 			                    <input type="text" class="form-control form-control-lg rounded-0" name="username" id="username" required="">

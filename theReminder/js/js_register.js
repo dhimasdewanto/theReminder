@@ -7,7 +7,8 @@ $('#register-button').click(function() {
 		processData: false,
 		contentType: "application/json",
 
-		data: '{"username": "' + $("#username").val() 
+		data: '{"showname": "' + $("#showname").val() 
+			+ '", "username": "' + $("#username").val()
 			+ '", "email": "' + $("#email").val()
 			+ '", "password": "' + $("#password").val()
 			+ '" }',
