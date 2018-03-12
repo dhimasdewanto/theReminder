@@ -27,23 +27,27 @@
 			            <form action="register.php" class="form" role="form" autocomplete="off" novalidate="" method="post">
 			            	<div class="form-group">
 			                    <label>Your Name</label>
-			                    <input type="text" class="form-control form-control-lg rounded-0" name="showname" id="showname" required="">
-			                    <div class="invalid-feedback">Oops, you missed this one.</div>
+			                    <input type="text" class="form-control form-control-lg rounded-0" name="showname" id="showname" required="" 
+			                    title="Enter your name. Minimum 3 characters.">
+			                    <div class="invalid-feedback" id="invalid-showname">Please enter your name. Minimum 3 characters.</div>
 			                </div>
 			                <div class="form-group">
 			                    <label>Username</label>
-			                    <input type="text" class="form-control form-control-lg rounded-0" name="username" id="username" required="">
-			                    <div class="invalid-feedback">Oops, you missed this one.</div>
+			                    <input type="text" class="form-control form-control-lg rounded-0" name="username" id="username" required=""
+			                    title="Minimum 6 characters and maximum 50 characters.">
+			                    <div class="invalid-feedback" id="invalid-username">Minimum 6 characters and maximum 50 characters.</div>
 			                </div>
 			                <div class="form-group">
 			                    <label>Email</label>
-			                    <input type="text" class="form-control form-control-lg rounded-0" name="email" id="email" required="">
-			                    <div class="invalid-feedback">Oops, you missed this one.</div>
+			                    <input type="text" class="form-control form-control-lg rounded-0" name="email" id="email" required=""
+			                    title="Please enter your valid email.">
+			                    <div class="invalid-feedback" id="invalid-email">Please enter your valid email.</div>
 			                </div>
 			                <div class="form-group">
 			                    <label>Password</label>
-			                    <input type="password" class="form-control form-control-lg rounded-0" name="password" id="password" required="" autocomplete="new-password">
-			                    <div class="invalid-feedback">Enter your password too!</div>
+			                    <input type="password" class="form-control form-control-lg rounded-0" name="password" id="password" required="" autocomplete="new-password"
+			                    title="Create your password. Minimum 6 characters and maximum 60 characters.">
+			                    <div class="invalid-feedback" id="invalid-password">Please input your password. Minimum 6 characters and maximum 60 characters.</div>
 			                </div>
 			                <button type="button" class="btn btn-success btn-lg float-right" id="register-button">Register</button>
 			            </form>
